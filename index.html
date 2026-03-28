@@ -1,119 +1,203 @@
-"use client";
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jurisight - Inteligência Jurídica</title>
 
-import { useState } from "react";
-import { motion } from "framer-motion";
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-export default function JurisightApp() {
-  const [isLogged, setIsLogged] = useState(false);
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
 
-  return (
-    <div className="min-h-screen bg-[#0A2540] text-white">
-      {!isLogged ? (
-        <Landing onLogin={() => setIsLogged(true)} />
-      ) : (
-        <Dashboard onLogout={() => setIsLogged(false)} />
-      )}
+    body {
+      background: #0A2540;
+      color: white;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 60px;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: #6C63FF;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: white;
+      opacity: 0.8;
+    }
+
+    nav a:hover {
+      opacity: 1;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 80px 60px;
+    }
+
+    .hero-text {
+      max-width: 600px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      opacity: 0.8;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      background: #6C63FF;
+      padding: 15px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #5848e5;
+    }
+
+    .hero img {
+      width: 400px;
+    }
+
+    .features {
+      padding: 80px 60px;
+      background: #071A2F;
+      text-align: center;
+    }
+
+    .features h2 {
+      margin-bottom: 40px;
+      font-size: 32px;
+    }
+
+    .grid {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: #0E2A47;
+      padding: 30px;
+      border-radius: 12px;
+      width: 280px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: #6C63FF;
+    }
+
+    .about {
+      padding: 80px 60px;
+      text-align: center;
+    }
+
+    .cta {
+      padding: 80px 60px;
+      text-align: center;
+      background: linear-gradient(135deg, #6C63FF, #4A42D4);
+    }
+
+    footer {
+      padding: 30px;
+      text-align: center;
+      background: #071A2F;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Jurisight</div>
+  <nav>
+    <a href="#">Início</a>
+    <a href="#">Funcionalidades</a>
+    <a href="#">Sobre</a>
+    <a href="#">Contato</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>Inteligência que revela o essencial no jurídico</h1>
+    <p>Analise documentos jurídicos com IA, destaque informações relevantes e tome decisões mais rápidas e precisas.</p>
+    <a href="#" class="btn">Começar Agora</a>
+  </div>
+
+  <!-- Substitua pelo seu logo -->
+  <img src="logo.png" alt="Jurisight Logo">
+</section>
+
+<section class="features">
+  <h2>Funcionalidades</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Análise Inteligente</h3>
+      <p>IA que interpreta documentos jurídicos automaticamente.</p>
     </div>
-  );
-}
 
-function Landing({ onLogin }) {
-  return (
-    <div>
-      <header className="flex justify-between p-6">
-        <h1 className="text-2xl font-bold text-[#6C63FF]">Jurisight</h1>
-        <button onClick={onLogin} className="bg-[#6C63FF] px-4 py-2 rounded-xl">Login</button>
-      </header>
-
-      <section className="flex flex-col items-center text-center mt-20 px-6">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-5xl font-bold mb-6"
-        >
-          Inteligência jurídica com IA
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          className="max-w-xl opacity-80"
-        >
-          Analise documentos jurídicos, destaque cláusulas e obtenha insights automáticos com IA.
-        </motion.p>
-
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          className="mt-8 bg-[#6C63FF] px-6 py-3 rounded-2xl"
-          onClick={onLogin}
-        >
-          Começar
-        </motion.button>
-      </section>
+    <div class="card">
+      <h3>Destaque Automático</h3>
+      <p>Identificação de cláusulas e termos relevantes.</p>
     </div>
-  );
-}
 
-function Dashboard({ onLogout }) {
-  return (
-    <div className="flex">
-      <Sidebar onLogout={onLogout} />
-      <MainPanel />
+    <div class="card">
+      <h3>Busca Avançada</h3>
+      <p>Encontre informações críticas em segundos.</p>
     </div>
-  );
-}
+  </div>
+</section>
 
-function Sidebar({ onLogout }) {
-  return (
-    <div className="w-64 bg-[#071A2F] h-screen p-6">
-      <h2 className="text-xl font-bold text-[#6C63FF] mb-8">Jurisight</h2>
-      <nav className="flex flex-col gap-4">
-        <button className="text-left">Dashboard</button>
-        <button className="text-left">Documentos</button>
-        <button className="text-left">Análises</button>
-      </nav>
-      <button onClick={onLogout} className="mt-10 text-red-400">Sair</button>
-    </div>
-  );
-}
+<section class="about">
+  <h2>Sobre o Jurisight</h2>
+  <p>Uma plataforma inovadora que utiliza Inteligência Artificial e Processamento de Linguagem Natural para transformar a forma como profissionais do direito analisam documentos.</p>
+</section>
 
-function MainPanel() {
-  return (
-    <div className="flex-1 p-10">
-      <motion.h1
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        className="text-3xl font-bold mb-6"
-      >
-        Dashboard Jurídico
-      </motion.h1>
+<section class="cta">
+  <h2>Pronto para revolucionar sua análise jurídica?</h2>
+  <br>
+  <a href="#" class="btn">Testar Gratuitamente</a>
+</section>
 
-      <div className="grid grid-cols-3 gap-6">
-        <Card title="Documentos analisados" value="128" />
-        <Card title="Insights gerados" value="54" />
-        <Card title="Tempo economizado" value="32h" />
-      </div>
+<footer>
+  © 2026 Jurisight - Todos os direitos reservados
+</footer>
 
-      <div className="mt-10">
-        <h2 className="text-xl mb-4">Últimos documentos</h2>
-        <div className="bg-[#0E2A47] p-4 rounded-xl">
-          <p>Contrato_Cliente_A.pdf</p>
-          <p>Petição_Trabalhista.docx</p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function Card({ title, value }) {
-  return (
-    <motion.div
-      whileHover={{ scale: 1.05 }}
-      className="bg-[#0E2A47] p-6 rounded-2xl"
-    >
-      <h3 className="opacity-70">{title}</h3>
-      <p className="text-2xl font-bold mt-2">{value}</p>
-    </motion.div>
-  );
-}
+</body>
+</html>
